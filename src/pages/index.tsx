@@ -15,12 +15,10 @@ const Main = () => {
     setShouldRender(true);
   }, []);
 
-  React.useEffect(() => {}, []);
-
   return shouldRender ? (
     <>
       <Head>
-        <title>Days to an event</title>
+        <title>Dias para o evento</title>
         <html lang="pt" />
         <meta
           name="description"
