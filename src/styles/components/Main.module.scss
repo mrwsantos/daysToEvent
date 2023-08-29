@@ -1,0 +1,57 @@
+.mainWrapper {
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 50px;
+    overflow: hidden;
+
+    h1 {
+        font-size: 5rem;
+        color: white;
+        text-align: center;
+    }
+
+    h4 {
+        font-size: 4rem;
+        color: white;
+        text-align: center;
+        margin-top: 0
+    }
+
+    a {
+        background-color: white;
+        color: #111;
+        max-width: 300px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all .2s;
+        font-size: 2rem;
+
+        &:hover {
+            opacity: .7;
+        }
+    }
+
+    &::before {
+        content: '';
+        width: 100vw;
+        height: 100vh;
+        background: url("https://a0.muscache.com/im/pictures/10abb945-6fe1-469e-9b45-69280da4b6ee.jpg");
+        ;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        opacity: .5;
+    }
+}

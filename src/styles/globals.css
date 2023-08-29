@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&family=PT+Sans:wght@400;700&family=Paytone+One&display=swap");
+html,
+body {
+  font-family: "PT Sans", "Oxygen", sans-serif;
+
+  --color-1: #161618;
+  --color-2: #e5b648;
+  --color-3: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100vw;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  background-color: #111;
+  font-size: 75%;
+  overflow-x: hidden;
+  color: var(--color-3);
+}
