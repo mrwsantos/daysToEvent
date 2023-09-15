@@ -18,7 +18,7 @@ const CheckList = ({ data }: any) => {
   }
 
   if (!checkList.length) {
-    return
+    return null
   }
 
   return (
