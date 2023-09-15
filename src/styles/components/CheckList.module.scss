@@ -1,0 +1,19 @@
+.checklist {
+  margin-top: 16px;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.5;
+    font-size: 14px;
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
+
+  &__item + li {
+    margin-top: 8px;
+  }
+}

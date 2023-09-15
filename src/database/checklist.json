@@ -1,0 +1,136 @@
+{
+  "sections": [
+    {
+      "title": "Acessórios",
+      "checklist": [
+        { "title": "Lentes de Contato", "done": false },
+        { "title": "Óculos de Grau", "done": false },
+        { "title": "Óculos de Sol", "done": false }
+      ]
+    },
+    {
+      "title": "Documentos",
+      "checklist": [
+        { "title": "Documento de Identificação (RG)", "done": false },
+        { "title": "Carteira de Motorista", "done": false },
+        { "title": "Passagem de ônibus", "done": false },
+        { "title": "Aluguel de Carro", "done": false },
+        { "title": "Dinheiro/Moeda", "done": false },
+        { "title": "Cartão de Crédito", "done": false }
+      ]
+    },
+    {
+      "title": "Levar no ônibus",
+      "checklist": [
+        { "title": "Snacks/Barra de cereais", "done": false },
+        { "title": "Cabo USB", "done": false },
+        { "title": "Fones de Ouvido", "done": false },
+        { "title": "Almofada de Pescoço", "done": false }
+      ]
+    },
+    {
+      "title": "Eletrônicos",
+      "checklist": [
+        { "title": "Celular", "done": false },
+        { "title": "Bateria auxiliar", "done": false },
+        { "title": "Pilhas", "done": false },
+        { "title": "Câmera", "done": false },
+        { "title": "Cartão de Memória", "done": false },
+        { "title": "Carregador de Celular", "done": false },
+        { "title": "Fone de Ouvido", "done": false },
+        { "title": "Tablets", "done": false },
+        { "title": "GPS", "done": false },
+        { "title": "Lanterna", "done": false },
+        { "title": "Notebook", "done": false },
+        { "title": "Pen Drive", "done": false }
+      ]
+    },
+    {
+      "title": "Na sua Bagagem",
+      "checklist": [
+        { "title": "Identificador de Malas", "done": false },
+        { "title": "Cadeado", "done": false },
+        { "title": "Organizador de Mala", "done": false },
+        { "title": "Necessaire", "done": false },
+        { "title": "Calças", "done": false },
+        { "title": "Camisetas", "done": false },
+        { "title": "Casacos", "done": false },
+        { "title": "Calçados", "done": false },
+        { "title": "Vestidos", "done": false },
+        { "title": "Saias", "done": false },
+        { "title": "Roupas Íntimas", "done": false },
+        { "title": "Pijama", "done": false },
+        { "title": "Meias", "done": false },
+        { "title": "Roupa de Banho", "done": false },
+        { "title": "Sacos Plástico para roupas sujas", "done": false },
+        { "title": "Mochila", "done": false },
+        { "title": "Boné", "done": false },
+        { "title": "Chapeu", "done": false },
+        { "title": "Gorro", "done": false },
+        { "title": "Luvas", "done": false },
+        { "title": "Bolsa e Cinto", "done": false }
+      ]
+    },
+    {
+      "title": "Maquiagem",
+      "checklist": [
+        { "title": "Base", "done": false },
+        { "title": "Pó", "done": false },
+        { "title": "Corretivo", "done": false },
+        { "title": "Gloss", "done": false },
+        { "title": "Curvex", "done": false },
+        { "title": "Lápis", "done": false },
+        { "title": "Rimel", "done": false },
+        { "title": "Escova de Cabelo", "done": false },
+        { "title": "Removedor de maquiagem", "done": false },
+        { "title": "Lenço removedor", "done": false }
+      ]
+    },
+    {
+      "title": "Medicamentos",
+      "checklist": [
+        { "title": "Prescrições de uso contínuo", "done": false },
+        { "title": "Dor de cabeça", "done": false },
+        { "title": "Enjôo", "done": false },
+        { "title": "Gripes e resfriados", "done": false },
+        { "title": "Azia", "done": false },
+        { "title": "Alergias", "done": false },
+        { "title": "Curativos", "done": false },
+        { "title": "Dores musculares", "done": false },
+        { "title": "Pastilha para garganta", "done": false },
+        { "title": "Antigases", "done": false },
+        { "title": "Anticoncepcionais", "done": false }
+      ]
+    },
+    {
+      "title": "Higiene Pessoal",
+      "checklist": [
+        { "title": "Absorventes", "done": false },
+        { "title": "Lenço umedecido", "done": false },
+        { "title": "Escova de dente", "done": false },
+        { "title": "Pasta de Dente", "done": false },
+        { "title": "Fio Dental", "done": false },
+        { "title": "Enxaguante Bucal", "done": false },
+        { "title": "Escova / Pente", "done": false },
+        { "title": "Protetor Solar", "done": false },
+        { "title": "Shampoo", "done": false },
+        { "title": "Condicionador", "done": false },
+        { "title": "Creme Hidratante", "done": false },
+        { "title": "Hidratante Labial", "done": false },
+        { "title": "Curativos", "done": false },
+        { "title": "Repelente", "done": false },
+        { "title": "Lixa de unha", "done": false },
+        { "title": "Alicate de unhas", "done": false },
+        { "title": "Pinça", "done": false }
+      ]
+    },
+    {
+      "title": "Para Homens",
+      "checklist": [
+        { "title": "Creme de Barbear", "done": false },
+        { "title": "Barbeador", "done": false },
+        { "title": "Gel para cabelo", "done": false }
+      ]
+    }
+  ]
+}
