@@ -5,7 +5,6 @@ import styles from "./../../styles/components/Counter.module.scss";
 const Counter = () => {
   const { eventDate } = useContext(DataContext);
   const [timeLeft, setTimeLeft] = React.useState<any>();
-  const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -33,40 +32,41 @@ const Counter = () => {
     return timeLeft;
   };
 
-  React.useEffect(() => {
-    setLoading(false);
-  }, [timeLeft]);
+  if (!timeLeft) {
+    return <div className={styles.empty}></div>;
+  }
 
   return (
     <>
-      {loading ? (
-        <h1>Carregando...</h1>
-      ) : (
-        <>
+      <div className={styles.wrapper}>
+        <div className={styles.sheet}>
+          <div className={styles.days}>
+            <div className={styles.daysLeft}>
+              <div>{timeLeft.days.toString().padStart(2, "0")}</div>
+              <div>{timeLeft.days > 1 ? "DIAS" : "DIA"}</div>
+            </div>
+          </div>
           <div className={styles.row}>
             <div className={styles.sheet}>
-              {timeLeft && timeLeft.days}
-              <h3>DIAS</h3>
+              <div className={styles.hours}>
+                {timeLeft.hours.toString().padStart(2, "0")}{" "}
+                {timeLeft.hours > 1 ? "HORAS" : "HORA"}
+              </div>
             </div>
-          </div>
-          <div className={styles.wrapper}>
-            <div className={styles.row}>
-              <div className={styles.sheet}>
-                {timeLeft && timeLeft.hours}
-                <h3>HORAS</h3>
+            <div className={styles.sheet}>
+              <div className={styles.minutes}>
+                {timeLeft.minutes} {timeLeft.minutes > 1 ? "MINUTOS" : "MINUTO"}
               </div>
-              <div className={styles.sheet}>
-                {timeLeft && timeLeft.minutes}
-                <h3>MINUTOS</h3>
-              </div>
-              <div className={styles.sheet}>
-                {timeLeft && timeLeft.seconds}
-                <h3>SEGUNDOS</h3>
+            </div>
+            <div className={styles.sheet}>
+              <div className={styles.seconds}>
+                {timeLeft.seconds.toString().padStart(2, "0")}{" "}
+                {timeLeft.seconds > 1 ? "SEGUNDOS" : "SEGUNDO"}
               </div>
             </div>
           </div>
-        </>
-      )}
+        </div>
+      </div>
     </>
   );
 };
