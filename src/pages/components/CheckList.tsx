@@ -17,9 +17,13 @@ const CheckList = ({ data }: any) => {
     });
   }
 
+  if (!checkList.length) {
+    return
+  }
+
   return (
     <ul className={styles.checklist}>
-      {checkList.map((item: any, index: any) => (
+      {checkList?.map((item: any, index: any) => (
         <li
           key={index}
           className={styles.checklist__item}
