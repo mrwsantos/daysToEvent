@@ -17,7 +17,7 @@ const CheckList = ({ data }: any) => {
     });
   }
 
-  if (!checkList.length) {
+  if (!checkList?.length) {
     return null
   }
 
