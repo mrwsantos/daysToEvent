@@ -7,15 +7,11 @@ import DataContext from "../context/DataContext";
 //CONTEXTO -------------
 import Head from "next/head";
 import Counter from "./components/Counter";
-import {
-  Backpack,
-  Warning,
-  Camera,
-  MapPin,
-} from "@phosphor-icons/react";
+import { Backpack, Warning, Camera, MapPin } from "@phosphor-icons/react";
 import data from "../database/checklist.json";
 import Timeline from "./components/Timeline";
 import CheckList from "./components/CheckList";
+import Forecast from "./components/Forecast";
 
 const Main = () => {
   const [shouldRender, setShouldRender] = useState(false);
@@ -43,7 +39,10 @@ const Main = () => {
           <header>
             <h1>{eventName}</h1>
           </header>
-          <Counter />
+          <div className={styles.content}>
+            <Counter />
+            <Forecast />
+          </div>
           <Timeline />
         </div>
 
@@ -80,9 +79,14 @@ const Main = () => {
           </div>
         </aside>
 
-        {dynamicBackground && <div className={styles.background} style={{
-          backgroundImage: `url(${dynamicBackground})`
-        }}></div>}
+        {dynamicBackground && (
+          <div
+            className={styles.background}
+            style={{
+              backgroundImage: `url(${dynamicBackground})`,
+            }}
+          ></div>
+        )}
       </div>
     </>
   ) : null;
