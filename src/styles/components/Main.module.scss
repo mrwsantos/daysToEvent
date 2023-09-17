@@ -56,6 +56,7 @@
 
         @media screen and (max-width: 600px) {
             padding: 2rem;
+            height: calc(100vh - 72px);
         }
 
         .content {
