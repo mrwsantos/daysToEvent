@@ -12,6 +12,7 @@ import data from "../database/checklist.json";
 import Timeline from "./components/Timeline";
 import CheckList from "./components/CheckList";
 import Forecast from "./components/Forecast";
+import Sound from "./components/Sound";
 
 const Main = () => {
   const [shouldRender, setShouldRender] = useState(false);
@@ -43,7 +44,10 @@ const Main = () => {
             <Counter />
             <Forecast />
           </div>
-          <Timeline />
+          <div className={styles.footer}>
+            <Sound />
+            <Timeline />
+          </div>
         </div>
 
         <div className={styles.options}>
