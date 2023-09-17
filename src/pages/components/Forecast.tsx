@@ -16,6 +16,10 @@ import styles from "../../styles/components/Forecast.module.scss";
 import moment from "moment";
 
 function getIcon(weatherId: string) {
+  if (/^80[1-9]/g.test(weatherId)) {
+    return <CloudSun size={32} />;
+  }
+  
   if (/^2[0-9]/g.test(weatherId)) {
     return <CloudLightning size={32} />;
   }
@@ -38,10 +42,6 @@ function getIcon(weatherId: string) {
 
   if (/^8[0-9]/g.test(weatherId)) {
     return <Sun size={32} />;
-  }
-
-  if (/^80[0-9]/g.test(weatherId)) {
-    return <CloudSun size={32} />;
   }
 
   return null;
@@ -67,7 +67,7 @@ const Forecast = () => {
       try {
         const { data } = await axios.get(url);
 
-        const maximumAPIdate = data?.list[data?.list?.length - 2];
+        const maximumAPIdate = data?.list[data?.list?.length - 7];
 
         const forecast = data?.list?.filter(
           (item: any) =>
