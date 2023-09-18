@@ -130,8 +130,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     &.active {
       background: rgba(255, 255, 255, 0.2);
+    }
+
+    button{
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
     }
   }
 }

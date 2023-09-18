@@ -22,6 +22,11 @@
 
 .daysLeft {
   text-indent: -1%;
+
+  @media (min-width: 1200px) and (max-width: 1600px) {
+    display: flex;
+    column-gap: 30px;
+  }
 }
 
 .sheet {
@@ -42,7 +47,7 @@
     line-height: 1;
 
     @media screen and (max-width: 600px) {
-        font-size: 1rem;
+      font-size: 1rem;
     }
   }
 }
