@@ -19,7 +19,7 @@ function getIcon(weatherId: string) {
   if (/^80[1-9]/g.test(weatherId)) {
     return <CloudSun size={32} />;
   }
-  
+
   if (/^2[0-9]/g.test(weatherId)) {
     return <CloudLightning size={32} />;
   }

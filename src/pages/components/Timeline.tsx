@@ -10,29 +10,33 @@ const Timeline = () => {
   const calendar = Array(dayOfTheEvent).fill("•");
 
   return (
-    <ul className={styles.timeline} style={{
-      gridTemplateColumns: `repeat(${calendar.length}, 1fr)`
-    }}>
+    <ul
+      className={styles.timeline}
+      style={{
+        gridTemplateColumns: `repeat(${calendar.length}, 1fr)`,
+      }}
+    >
       {calendar.map((bullet, index) => {
-        index = index + 1
+        index = index + 1;
+
         const isPast = index < today;
         const isToday = index === today;
         const isLast = index === dayOfTheEvent;
 
         if (index === today - 1) {
-          return <>{bullet}</>
+          return <>{bullet}</>;
         }
 
         return (
           <li
-            key={index}
+            key={`calendar-item-${index}`}
             className={`${styles.timeline__item} ${
               isToday ? styles.active : ""
             } ${isLast ? styles.last : ""} ${isPast ? styles.past : ""}`}
           >
-            {isToday && index.toString().padStart(2, '0')}
+            {isToday && index.toString().padStart(2, "0")}
             {!isToday && !isLast && bullet}
-            {isLast && index.toString().padStart(2, '0')}
+            {isLast && index.toString().padStart(2, "0")}
           </li>
         );
       })}

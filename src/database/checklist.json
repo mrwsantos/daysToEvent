@@ -12,7 +12,7 @@
       "title": "Documentos",
       "checklist": [
         { "title": "Documento de Identificação (RG)", "done": false },
-        { "title": "Carteira de Motorista", "done": false },
+        { "title": "Carteira de Motorista (CNH)", "done": false },
         { "title": "Passagem de ônibus", "done": false },
         { "title": "Aluguel de Carro", "done": false },
         { "title": "Dinheiro/Moeda", "done": false },
@@ -23,7 +23,9 @@
       "title": "Levar no ônibus",
       "checklist": [
         { "title": "Snacks/Barra de cereais", "done": false },
-        { "title": "Cabo USB", "done": false },
+        { "title": "Cabo USB (normal)", "done": false },
+        { "title": "Cabo USB C", "done": false },
+        { "title": "Cabo Lightning (iPhone)", "done": false },
         { "title": "Fones de Ouvido", "done": false },
         { "title": "Almofada de Pescoço", "done": false }
       ]
@@ -37,12 +39,14 @@
         { "title": "Câmera", "done": false },
         { "title": "Cartão de Memória", "done": false },
         { "title": "Carregador de Celular", "done": false },
+        { "title": "Carregador Portátil", "done": false },
         { "title": "Fone de Ouvido", "done": false },
         { "title": "Tablets", "done": false },
         { "title": "GPS", "done": false },
         { "title": "Lanterna", "done": false },
         { "title": "Notebook", "done": false },
-        { "title": "Pen Drive", "done": false }
+        { "title": "Pen Drive", "done": false },
+        { "title": "Video-Game Portátil", "done": false }
       ]
     },
     {
