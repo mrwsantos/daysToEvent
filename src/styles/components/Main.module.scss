@@ -5,10 +5,11 @@
   overflow: hidden;
   width: 100%;
   height: 100vh;
-
+  
   @media screen and (max-width: 600px) {
-    height: initial;
+    height: auto;
     overflow: initial;
+    min-height: 100vh;
   }
 
   h1 {
