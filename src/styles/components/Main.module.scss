@@ -6,6 +6,11 @@
   width: 100%;
   height: 100vh;
 
+  @media screen and (max-width: 600px) {
+    height: initial;
+    overflow: initial;
+  }
+
   h1 {
     font-size: 18px;
     font-weight: bold;
@@ -53,10 +58,10 @@
     display: flex;
     flex-direction: column;
     max-width: 1366px;
+    transition: all .5s ease-out;
 
     @media screen and (max-width: 600px) {
       padding: 2rem;
-      height: calc(100vh - 72px);
     }
 
     .content {
@@ -98,7 +103,33 @@
   margin-left: auto;
 
   @media screen and (max-width: 600px) {
-    display: none;
+    position: fixed;
+    bottom: calc(0% - 210px);
+    left: 0;
+    padding: 15px 10px;
+    transition: all .5s ease-out;
+  }
+
+  .iconExpanded {
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+
+    svg {
+      transition: all .2s ease-out;
+    }
+  }
+
+  &.optionsMenuExpanded {
+    bottom: 0;
+
+    .iconExpanded {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
   }
 }
 
@@ -111,9 +142,31 @@
   color: #444;
   padding: 32px;
   overflow: auto;
+  transition: all .5s ease-out;
 
-  @media screen and (max-width: 600px) {
-    display: none;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 85%;
+  max-width: 300px;
+  z-index: 999;
+
+
+  &.sidebarOpened {
+    right: calc(0% + 145px);
+
+    @media screen and (max-width: 600px) {
+      right: 0%
+    }
+
+    .sidebar__header {
+      right: calc(0% + 145px);
+      transition: all .5s ease-out;
+
+      @media screen and (max-width: 600px) {
+        right: 0%
+      }
+    }
   }
 }
 
@@ -135,7 +188,7 @@
       background: rgba(255, 255, 255, 0.2);
     }
 
-    button{
+    button {
       border: none;
       background-color: transparent;
       cursor: pointer;
@@ -154,4 +207,24 @@
     text-transform: uppercase;
     font-size: 12px;
   }
+}
+
+.sidebar__iframeMap {
+  max-width: 100% !important;
+}
+
+.sidebar__header {
+  width: 100%;
+  height: 40px;
+  background: white;
+  padding: 15px;
+  max-width: 300px;
+
+  display: flex;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  right: -100%;
+  transition: all .5s ease-out;
 }
