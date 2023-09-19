@@ -160,8 +160,12 @@
     }
 
     .sidebar__header {
-      right: 0;
+      right: calc(0% + 145px);
       transition: all .5s ease-out;
+
+      @media screen and (max-width: 600px) {
+        right: 0%
+      }
     }
   }
 }
