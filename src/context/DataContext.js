@@ -18,12 +18,13 @@ export const DataStorage = ({ children }) => {
     "https://a0.muscache.com/im/pictures/333f85df-f538-4ae7-8726-47bff6d445e7.jpg?im_w=1440",
     "https://a0.muscache.com/im/pictures/a5633203-f7ae-4219-aa8a-0272c0ddbb07.jpg?im_w=1440",
     "https://a0.muscache.com/im/pictures/f7a6a64f-baea-4de5-816e-2fd10cd32e04.jpg?im_w=1440",
-    "https://a0.muscache.com/im/pictures/902e84cb-9632-4245-bbbb-2a51f25b0b63.jpg?im_w=1440"
+    "https://a0.muscache.com/im/pictures/902e84cb-9632-4245-bbbb-2a51f25b0b63.jpg?im_w=1440",
   ]);
   const [eventLink, setEventLink] = useState(
     "https://www.airbnb.com/trips/v1/09bf28bd-d9cf-4f43-841d-720f93c1aa5c/ro/RESERVATION_USER_CHECKIN/HM42EYB99Y?c=.pi80.pkdmlyYWxpdHkvc2hhcmVfaXRpbmVyYXJ5&euid=f5d4a217-3386-7ae1-686a-ee0cca75a00d"
   );
   const [eventDate, setEventDate] = useState("2023-09-29T15:00:00.000Z");
+  const [sidebarOpened, setSidebarOpened] = useState(false);
 
   return (
     <DataContext.Provider
@@ -36,6 +37,8 @@ export const DataStorage = ({ children }) => {
         setEventLink,
         eventDate,
         setEventDate,
+        sidebarOpened,
+        setSidebarOpened,
       }}
     >
       {children}

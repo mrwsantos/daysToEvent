@@ -2,9 +2,9 @@ import { useState, useEffect, useContext, useRef } from "react";
 import axios from "axios";
 
 import { SpeakerHigh, SpeakerSlash, SpeakerX } from "@phosphor-icons/react";
-import DataContext from "../../context/DataContext";
+import DataContext from "../context/DataContext";
 
-import styles from "../../styles/components/Sound.module.scss";
+import styles from "../styles/components/Sound.module.scss";
 
 const Sound = () => {
   const { eventDate } = useContext(DataContext);

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import DataContext from "../../context/DataContext";
-import styles from "./../../styles/components/Counter.module.scss";
+import DataContext from "../context/DataContext";
+import styles from "./../styles/components/Counter.module.scss";
 
 const Counter = () => {
   const { eventDate } = useContext(DataContext);
