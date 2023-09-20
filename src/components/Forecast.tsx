@@ -10,9 +10,9 @@ import {
   Sun,
   Wind,
 } from "@phosphor-icons/react";
-import DataContext from "../../context/DataContext";
+import DataContext from "../context/DataContext";
 
-import styles from "../../styles/components/Forecast.module.scss";
+import styles from "../styles/components/Forecast.module.scss";
 import moment from "moment";
 
 function getIcon(weatherId: string) {

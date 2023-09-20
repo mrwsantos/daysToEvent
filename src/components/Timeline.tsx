@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import DataContext from "../../context/DataContext";
-import styles from "./../../styles/components/Timeline.module.scss";
+import DataContext from "../context/DataContext";
+import styles from "./../styles/components/Timeline.module.scss";
 import moment from "moment";
 
 const Timeline = () => {

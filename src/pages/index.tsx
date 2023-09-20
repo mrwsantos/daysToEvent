@@ -7,29 +7,16 @@ import { isMobile } from "react-device-detect";
 
 //CONTEXTO -------------
 import Head from "next/head";
-import Counter from "./components/Counter";
-import {
-  Backpack,
-  Warning,
-  Camera,
-  MapPin,
-  CaretDoubleUp,
-} from "@phosphor-icons/react";
-import data from "../database/checklist.json";
-import Timeline from "./components/Timeline";
-import CheckList from "./components/CheckList";
-import Forecast from "./components/Forecast";
-import Sound from "./components/Sound";
+import Counter from "../components/Counter";
 
-type SideContentName = "backpack" | "pictures" | "map";
+import Timeline from "../components/Timeline";
+import Forecast from "../components/Forecast";
+import Sound from "../components/Sound";
+import SideBar from "@/components/SideBar";
 
 const Main = () => {
   const [shouldRender, setShouldRender] = useState(false);
-  const { eventName, eventImages, eventLink } = useContext(DataContext);
-
-  const [sidebarOpened, setSidebarOpened] = useState(false);
-  const [mobileMenuExpanded, setMobileMenuExpanded] = useState(false);
-  const [sideContent, setSideContent] = useState<SideContentName>("backpack");
+  const { eventName, eventImages, sidebarOpened } = useContext(DataContext);
 
   const today = moment().get("D");
   const dynamicBackground = eventImages[today % eventImages.length];
@@ -37,17 +24,6 @@ const Main = () => {
   useEffect(() => {
     setShouldRender(true);
   }, []);
-
-  function handleSideBar(type: SideContentName) {
-    if (sidebarOpened) {
-      setSideContent(type);
-
-      if (sideContent === type) setSidebarOpened(false);
-    } else {
-      setSideContent(type);
-      setSidebarOpened(true);
-    }
-  }
 
   return shouldRender ? (
     <>
@@ -77,112 +53,7 @@ const Main = () => {
           </div>
         </div>
 
-        <div
-          className={`${styles.options} ${
-            mobileMenuExpanded ? styles.optionsMenuExpanded : ""
-          }`}
-        >
-          {isMobile && (
-            <span
-              className={styles.iconExpanded}
-              onClick={() => {
-                setMobileMenuExpanded((prev) => !prev);
-                setSidebarOpened(false);
-              }}
-            >
-              <CaretDoubleUp size={24} />
-            </span>
-          )}
-          <ul className={styles.menu}>
-            <li
-              className={`${styles.menu__item} ${
-                sidebarOpened && sideContent === "backpack" ? styles.active : ""
-              }`}
-            >
-              <button onClick={() => handleSideBar("backpack")}>
-                <Backpack size={24} color="white" />
-              </button>
-            </li>
-            <li className={styles.menu__item}>
-              <Warning size={24} color="white" />
-            </li>
-            <li
-              className={`${styles.menu__item}
-            ${
-              sidebarOpened && sideContent === "pictures" ? styles.active : ""
-            }`}
-            >
-              <button onClick={() => handleSideBar("pictures")}>
-                <Camera size={24} color="white" />
-              </button>
-            </li>
-            <li
-              className={`${styles.menu__item}
-            ${sidebarOpened && sideContent === "map" ? styles.active : ""}`}
-            >
-              <button onClick={() => handleSideBar("map")}>
-                <MapPin size={24} color="white" />
-              </button>
-            </li>
-          </ul>
-        </div>
-
-        {/* {sidebarOpened && ( */}
-        <aside
-          className={`${styles.sidebar} ${
-            sidebarOpened ? styles.sidebarOpened : ""
-          }`}
-        >
-          <div className={styles.sidebar__container}>
-            {sideContent === "backpack" && (
-              <>
-                <header className={styles.sidebar__header}>
-                  <h2>Items para não esquecer</h2>
-                </header>
-
-                {data.sections.length &&
-                  data.sections.map((section, index) => (
-                    <div key={index} className={styles.section}>
-                      <h3 className={styles.section__title}>{section.title}</h3>
-                      <CheckList data={section.checklist} />
-                    </div>
-                  ))}
-              </>
-            )}
-            {sideContent === "map" && (
-              <>
-                <header className={styles.sidebar__header}>
-                  <h2>Localização</h2>
-                </header>
-
-                <div className={styles.section}>
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3652.660898241824!2d-47.274852724664974!3d-23.72380067868861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDQzJzI1LjciUyA0N8KwMTYnMjAuMiJX!5e0!3m2!1spt-BR!2sbr!4v1695000941376!5m2!1spt-BR!2sbr"
-                    width="280"
-                    height="500"
-                    style={{ border: 0 }}
-                    allowFullScreen={true}
-                    loading="lazy"
-                    className={styles.sidebar__iframeMap}
-                  ></iframe>
-                </div>
-              </>
-            )}
-            {sideContent === "pictures" && (
-              <>
-                <header className={styles.sidebar__header}>
-                  <h2>Fotos da estadia</h2>
-                </header>
-
-                <p className={styles.section}>
-                  Infelizmente não há nada ainda para mostrar por aqui. Volte
-                  novamente mais tarde.
-                </p>
-              </>
-            )}
-          </div>
-        </aside>
-        {/* )} */}
+        <SideBar/>
 
         {dynamicBackground && (
           <div
