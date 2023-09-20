@@ -144,7 +144,7 @@ const SideBar = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="/" target="_blank">
+                    <a href="https://photos.app.goo.gl/MHxC2H1D9zC45eyY6" target="_blank">
                       <GooglePhotosLogo size={24} /> Google Photos
                     </a>
                   </li>
