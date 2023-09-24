@@ -47,7 +47,7 @@ export function saveRegistrations(
   );
 }
 
-export default async function handler(
+export default function handler(
   request: SendNotificationRequest,
   response: NextApiResponse
 ) {
