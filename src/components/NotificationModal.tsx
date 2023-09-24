@@ -95,7 +95,7 @@ export function NotificationModal() {
   }
 
   return (
-    <Modal isOpen={shouldAskPermission} portalClassName={styles.wrapper}>
+    <Modal isOpen={false} portalClassName={styles.wrapper}>
       <div className={styles.content}>
         <Bell size={32} color="#333333" />
         <h2 className={styles.title}>Notificações</h2>
