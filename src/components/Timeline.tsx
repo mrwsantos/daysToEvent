@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
-import DataContext from "../context/DataContext";
-import styles from "./../styles/components/Timeline.module.scss";
+import { v4 as randomUUIDv4 } from "uuid";
 import moment from "moment";
+
+import DataContext from "../context/DataContext";
+
+import styles from "./../styles/components/Timeline.module.scss";
 
 const Timeline = () => {
   const { eventDate } = useContext(DataContext);
@@ -24,12 +27,14 @@ const Timeline = () => {
         const isLast = index === dayOfTheEvent;
 
         if (index === today - 1) {
-          return <>{bullet}</>;
+          return <div key={randomUUIDv4()} style={{
+            visibility: "hidden"
+          }}>{bullet}</div>;
         }
 
         return (
           <li
-            key={`calendar-item-${index}`}
+            key={randomUUIDv4()}
             className={`${styles.timeline__item} ${
               isToday ? styles.active : ""
             } ${isLast ? styles.last : ""} ${isPast ? styles.past : ""}`}

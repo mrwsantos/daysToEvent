@@ -1,0 +1,40 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.title {
+  color: #000000;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+}
+
+.description {
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.button {
+  width: 100%;
+  color: var(--color-3);
+  background: #111111;
+  margin-top: 1rem;
+  border-radius: 3px;
+  padding: 0 1rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.15rem;
+  border: 0;
+  height: 3rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background: #000000;
+  }
+}
