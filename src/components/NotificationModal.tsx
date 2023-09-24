@@ -35,18 +35,18 @@ export function NotificationModal() {
     useState<ServiceWorkerRegistration | null>(null);
 
   useEffect(() => {
-    if (typeof window !== "undefined" && "serviceWorker" in navigator) {
-      navigator.serviceWorker.ready.then(async (registration) => {
-        const subscription = await registration.pushManager.getSubscription();
-        const { permission } = Notification;
+    // if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+    //   navigator.serviceWorker.ready.then(async (registration) => {
+    //     const subscription = await registration.pushManager.getSubscription();
+    //     const { permission } = Notification;
 
-        if (!subscription && permission !== "denied") {
-          setShouldAskPermission(true);
-        }
+    //     if (!subscription && permission !== "denied") {
+    //       setShouldAskPermission(true);
+    //     }
 
-        setRegistration(registration);
-      });
-    }
+    //     setRegistration(registration);
+    //   });
+    // }
   }, []);
 
   async function subscribeButtonOnClick(
