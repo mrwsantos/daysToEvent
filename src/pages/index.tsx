@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import moment from "moment";
-import styles from "../styles/components/Main.module.scss";
 
 import DataContext from "../context/DataContext";
 import { isMobile } from "react-device-detect";
@@ -13,6 +12,9 @@ import Timeline from "../components/Timeline";
 import Forecast from "../components/Forecast";
 import Sound from "../components/Sound";
 import SideBar from "@/components/SideBar";
+
+import styles from "../styles/components/Main.module.scss";
+import { NotificationModal } from "@/components/NotificationModal";
 
 const Main = () => {
   const [shouldRender, setShouldRender] = useState(false);
@@ -53,7 +55,7 @@ const Main = () => {
           </div>
         </div>
 
-        <SideBar/>
+        <SideBar />
 
         {dynamicBackground && (
           <div
@@ -63,6 +65,8 @@ const Main = () => {
             }}
           ></div>
         )}
+
+        <NotificationModal />
       </div>
     </>
   ) : null;

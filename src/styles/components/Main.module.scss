@@ -62,7 +62,7 @@
     transition: all .5s ease-out;
 
     @media screen and (max-width: 600px) {
-      padding: 2rem;
+      padding: 2rem 2rem 4rem;
     }
 
     .content {
@@ -255,4 +255,11 @@
     height: auto;
     max-width: 24px;
   }
+}
+
+.modal {
+  position: fixed;
+  padding: 3rem;
+  background-color: var(--color-3);
+  z-index: 99999999;
 }

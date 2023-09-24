@@ -47,6 +47,8 @@ function getIcon(weatherId: string) {
   return null;
 }
 
+const APP_ID = process.env.NEXT_PUBLIC_WEATHER_API_APP_KEY ?? ''
+
 const Forecast = () => {
   const { eventDate } = useContext(DataContext);
   const [forecast, setForecast] = useState({} as any);
@@ -54,7 +56,7 @@ const Forecast = () => {
   useEffect(() => {
     const baseURL = "https://api.openweathermap.org/data/2.5/forecast?";
     const queries = {
-      appid: "9f2cf3ec45c5d33adb0230c3659633ed",
+      appid: APP_ID,
       lang: "pt_br",
       units: "metric",
       lat: "-23.7242643",
