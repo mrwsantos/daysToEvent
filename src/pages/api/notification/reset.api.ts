@@ -8,8 +8,6 @@ export default function handler(
   if (request.method == "POST") {
     saveRegistrations(registrationsFilePath, []);
 
-    response.redirect(302, "/");
-
-    // return response.status(204).end();
+    return response.status(204).end();
   }
 }

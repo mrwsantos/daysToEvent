@@ -1,7 +1,9 @@
 const withPWA = require('next-pwa')
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  pageExtensions: ['api.ts']
+}
 
 module.exports = withPWA({
   dest: 'public',
