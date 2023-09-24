@@ -25,11 +25,11 @@ webPush.setVapidDetails(
 
 interface SendNotificationRequest extends NextApiRequest {
   body: {
-    message: string;
-  };
+    message: string
+  }
 }
 
-export default function handler(
+export default async function handler(
   request: SendNotificationRequest,
   response: NextApiResponse
 ) {
@@ -69,7 +69,7 @@ export default function handler(
         }
 
         if (request.body.message) {
-          message = request.body.message;
+          message = request.body.message
         }
 
         const { statusCode } = await webPush.sendNotification(
@@ -92,9 +92,7 @@ export default function handler(
       }
     });
 
-    (async () => {
-      await Promise.all(sendResult);
-    })();
+    await Promise.all(sendResult);
 
     const removeInvalidRegistration = registrations.filter(
       (registration) => !catchRegistrations.includes(registration.endpoint)
