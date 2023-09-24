@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { registrationsFilePath, saveRegistrations } from "./../register";
+import { registrationsFilePath, saveRegistrations } from ".//register";
 
 export default async function handler(
   request: NextApiRequest,
