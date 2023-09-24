@@ -7,16 +7,30 @@ import {
 } from "./register";
 import moment from "moment";
 
-const { publicKey, privateKey } = webPush.generateVAPIDKeys();
+// const { publicKey, privateKey } = webPush.generateVAPIDKeys();
+
+// webPush.setVapidDetails(
+//   process.env.WEB_PUSH_SUBJECT ?? "https://localhost:3000",
+//   process.env.WEB_PUSH_PUBLIC_KEY ?? publicKey,
+//   process.env.WEB_PUSH_PRIVATE_KEY ?? privateKey
+// );
 
 webPush.setVapidDetails(
-  process.env.WEB_PUSH_SUBJECT ?? "https://localhost:3000",
-  process.env.WEB_PUSH_PUBLIC_KEY ?? publicKey,
-  process.env.WEB_PUSH_PRIVATE_KEY ?? privateKey
+  process.env.NODE_ENV === "development"
+    ? "https://localhost:3000"
+    : "https://days-to-event.vercel.app",
+  "BKcKYys1FBTmXurs23DWjSM1HiaW0ethg0c5Yl2IqBGvpFe6gkrtFbaLOGn6vQ8Z46h_mxW8pzKjJm-0aAQdwwM",
+  "lSkbBZJtG8Jjd2TfBEbHMZ3GZhuaN9m5C8Sh1PE-jA0"
 );
 
+interface SendNotificationRequest extends NextApiRequest {
+  body: {
+    message: string
+  }
+}
+
 export default async function handler(
-  request: NextApiRequest,
+  request: SendNotificationRequest,
   response: NextApiResponse
 ) {
   if (request.method == "POST") {
@@ -52,6 +66,10 @@ export default async function handler(
             break;
           default:
             message = `Faltam ${daysLeft} dias para sua viagem.`;
+        }
+
+        if (request.body.message) {
+          message = request.body.message
         }
 
         const { statusCode } = await webPush.sendNotification(

@@ -47,7 +47,9 @@ function getIcon(weatherId: string) {
   return null;
 }
 
-const APP_ID = process.env.NEXT_PUBLIC_WEATHER_API_APP_KEY ?? ''
+const APP_ID =
+  process.env.NEXT_PUBLIC_WEATHER_API_APP_KEY ??
+  "9f2cf3ec45c5d33adb0230c3659633ed";
 
 const Forecast = () => {
   const { eventDate } = useContext(DataContext);
@@ -69,14 +71,24 @@ const Forecast = () => {
       try {
         const { data } = await axios.get(url);
 
+        const forecastForTheDayOfTheEvent = data?.list?.filter(
+          (item: any) =>
+            moment(eventDate).format("L") ===
+              moment(item?.dt_txt).format("L") &&
+            moment(item?.dt_txt).get("hour") >= 18
+        );
+
+        if (forecastForTheDayOfTheEvent?.length) {
+          setForecast({ ...data, list: forecastForTheDayOfTheEvent });
+          return;
+        }
+
         const maximumAPIdate = data?.list[data?.list?.length - 7];
 
         const forecast = data?.list?.filter(
           (item: any) =>
-            moment(eventDate).format("L") ===
-              moment(item?.dt_txt).format("L") ||
             moment(maximumAPIdate?.dt_txt).format("L") ===
-              moment(item?.dt_txt).format("L")
+            moment(item?.dt_txt).format("L")
         );
 
         setForecast({ ...data, list: forecast });

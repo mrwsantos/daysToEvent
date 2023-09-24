@@ -28,7 +28,6 @@ async function askNotificationPermission() {
 }
 
 export function NotificationModal() {
-  const [modalIsOpen, setIsOpen] = useState(true);
   const [shouldAskPermission, setShouldAskPermission] = useState(false);
   const [loading, setloading] = useState(false);
 
@@ -39,9 +38,9 @@ export function NotificationModal() {
     if (typeof window !== "undefined" && "serviceWorker" in navigator) {
       navigator.serviceWorker.ready.then(async (registration) => {
         const subscription = await registration.pushManager.getSubscription();
-        const { permission } = Notification
+        const { permission } = Notification;
 
-        if (!subscription && permission !== 'denied') {
+        if (!subscription && permission !== "denied") {
           setShouldAskPermission(true);
         }
 
@@ -92,37 +91,34 @@ export function NotificationModal() {
   }
 
   function closeModal() {
-    setIsOpen(false);
+    setShouldAskPermission(false);
   }
 
   return (
-    (shouldAskPermission && (
-      <Modal isOpen={modalIsOpen} portalClassName={styles.wrapper}>
-        <div className={styles.content}>
-          <Bell size={32} color="#333333" />
-          <h2 className={styles.title}>Notificações</h2>
-          <p className={styles.description}>
-            Precisamos da sua permissão para enviar notificações
-          </p>
-          <button className={styles.button} onClick={subscribeButtonOnClick}>
-            {(loading && (
-              <CircleNotch size={22} color="#ffffff">
-                <animateTransform
-                  attributeName="transform"
-                  attributeType="XML"
-                  type="rotate"
-                  dur="1s"
-                  from="0 0 0"
-                  to="360 0 0"
-                  repeatCount="indefinite"
-                ></animateTransform>
-              </CircleNotch>
-            )) ||
-              "Permitir"}
-          </button>
-        </div>
-      </Modal>
-    )) ||
-    null
+    <Modal isOpen={shouldAskPermission} portalClassName={styles.wrapper}>
+      <div className={styles.content}>
+        <Bell size={32} color="#333333" />
+        <h2 className={styles.title}>Notificações</h2>
+        <p className={styles.description}>
+          Precisamos da sua permissão para enviar notificações
+        </p>
+        <button className={styles.button} onClick={subscribeButtonOnClick}>
+          {(loading && (
+            <CircleNotch size={22} color="#ffffff">
+              <animateTransform
+                attributeName="transform"
+                attributeType="XML"
+                type="rotate"
+                dur="1s"
+                from="0 0 0"
+                to="360 0 0"
+                repeatCount="indefinite"
+              ></animateTransform>
+            </CircleNotch>
+          )) ||
+            "Permitir"}
+        </button>
+      </div>
+    </Modal>
   );
 }
