@@ -38,8 +38,6 @@
     "@types/react-lazyload": "^3.2.0",
     "@types/react-modal": "^3.16.0",
     "@types/react-portal": "^4.0.4",
-    "@types/socket.io": "^3.0.2",
-    "@types/socket.io-client": "^3.0.0",
     "@types/web-push": "^3.6.0"
   }
 }
