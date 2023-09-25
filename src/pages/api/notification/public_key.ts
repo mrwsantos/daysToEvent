@@ -25,7 +25,7 @@ export default function handler(
   request: NextApiRequest,
   response: NextApiResponse<ResponseData>
 ) {
-  if (request.method == "GET") {
+  if (request.method == "POST") {
     return response.status(200).json({
       publicKey: "BKcKYys1FBTmXurs23DWjSM1HiaW0ethg0c5Yl2IqBGvpFe6gkrtFbaLOGn6vQ8Z46h_mxW8pzKjJm-0aAQdwwM",
     });
