@@ -2,7 +2,7 @@ import React, { MouseEvent, useEffect, useState } from "react";
 import { Modal } from "./Modal";
 
 import styles from "../styles/components/NotificationModal.module.scss";
-import { Bell, CircleNotch } from "@phosphor-icons/react";
+import { Bell, CircleNotch } from "phosphor-react";
 import axios from "axios";
 
 const base64ToUint8Array = (base64: string) => {

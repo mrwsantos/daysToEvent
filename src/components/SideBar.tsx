@@ -8,7 +8,7 @@ import {
   MapPin,
   CaretDoubleUp,
   GooglePhotosLogo,
-} from "@phosphor-icons/react";
+} from "phosphor-react";
 import data from "../database/checklist.json";
 import CheckList from "./CheckList";
 import { isMobile } from "react-device-detect";

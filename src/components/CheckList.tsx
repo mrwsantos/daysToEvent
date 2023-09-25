@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { CheckSquare, Square } from "@phosphor-icons/react";
+import { CheckSquare, Square } from "phosphor-react";
 import styles from "../styles/components/CheckList.module.scss";
 
 const CheckList = ({ data }: any) => {
