@@ -9,5 +9,8 @@ export default async function handler(
     saveRegistrations(registrationsFilePath, []);
 
     return response.status(204).end();
+  } else {
+    response.setHeader("Allow", "POST");
+    response.status(405).end("Method not allowed");
   }
 }
