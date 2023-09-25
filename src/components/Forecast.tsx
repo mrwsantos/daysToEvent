@@ -73,25 +73,13 @@ const Forecast = () => {
 
         const forecastForTheDayOfTheEvent = data?.list?.filter(
           (item: any) =>
-            moment(eventDate).format("L") ===
-              moment(item?.dt_txt).format("L") &&
-            moment(item?.dt_txt).get("hour") >= 18
+            moment(eventDate).format("L") === moment(item?.dt_txt).format("L")
         );
 
         if (forecastForTheDayOfTheEvent?.length) {
           setForecast({ ...data, list: forecastForTheDayOfTheEvent });
           return;
         }
-
-        const maximumAPIdate = data?.list[data?.list?.length - 7];
-
-        const forecast = data?.list?.filter(
-          (item: any) =>
-            moment(maximumAPIdate?.dt_txt).format("L") ===
-            moment(item?.dt_txt).format("L")
-        );
-
-        setForecast({ ...data, list: forecast });
       } catch (err) {
         console.error(`Ocorreu um erro ao consultar previsão do tempo: ${err}`);
       }

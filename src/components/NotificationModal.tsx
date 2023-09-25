@@ -3,7 +3,7 @@ import { Modal } from "./Modal";
 
 import styles from "../styles/components/NotificationModal.module.scss";
 import { Bell, CircleNotch } from "@phosphor-icons/react";
-import axios from "axios";
+import { api } from "@/lib/axios";
 
 const base64ToUint8Array = (base64: string) => {
   const padding = "=".repeat((4 - (base64.length % 4)) % 4);
@@ -35,18 +35,18 @@ export function NotificationModal() {
     useState<ServiceWorkerRegistration | null>(null);
 
   useEffect(() => {
-    // if (typeof window !== "undefined" && "serviceWorker" in navigator) {
-    //   navigator.serviceWorker.ready.then(async (registration) => {
-    //     const subscription = await registration.pushManager.getSubscription();
-    //     const { permission } = Notification;
+    if (typeof window !== "undefined" && "serviceWorker" in navigator) {
+      navigator.serviceWorker.ready.then(async (registration) => {
+        const subscription = await registration.pushManager.getSubscription();
+        const { permission } = Notification;
 
-    //     if (!subscription && permission !== "denied") {
-    //       setShouldAskPermission(true);
-    //     }
+        if (!subscription && permission !== "denied") {
+          setShouldAskPermission(true);
+        }
 
-    //     setRegistration(registration);
-    //   });
-    // }
+        setRegistration(registration);
+      });
+    }
   }, []);
 
   async function subscribeButtonOnClick(
@@ -71,14 +71,14 @@ export function NotificationModal() {
     try {
       const {
         data: { publicKey },
-      } = await axios.get("/api/notification/public_key");
+      } = await api.get("/notification/public_key");
 
       const subscription = await registration.pushManager.subscribe({
         userVisibleOnly: true,
         applicationServerKey: base64ToUint8Array(publicKey),
       });
 
-      await axios.post("/api/notification/register", {
+      await api.post("/notification/register", {
         subscription,
       });
 
@@ -95,7 +95,7 @@ export function NotificationModal() {
   }
 
   return (
-    <Modal isOpen={false} portalClassName={styles.wrapper}>
+    <Modal isOpen={shouldAskPermission} portalClassName={styles.wrapper}>
       <div className={styles.content}>
         <Bell size={32} color="#333333" />
         <h2 className={styles.title}>Notificações</h2>
