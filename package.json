@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
-    "@phosphor-icons/react": "^2.0.10",
+    "@phosphor-icons/react": "^2.0.13",
+    "@prisma/client": "^5.3.1",
     "axios": "^1.5.0",
     "dotenv": "^16.3.1",
     "eslint": "8.41.0",
@@ -33,13 +35,12 @@
   },
   "devDependencies": {
     "@types/node": "20.2.5",
-    "@types/react": "18.2.7",
+    "@types/react": "^18.2.22",
     "@types/react-dom": "18.2.4",
     "@types/react-lazyload": "^3.2.0",
     "@types/react-modal": "^3.16.0",
     "@types/react-portal": "^4.0.4",
-    "@types/socket.io": "^3.0.2",
-    "@types/socket.io-client": "^3.0.0",
-    "@types/web-push": "^3.6.0"
+    "@types/web-push": "^3.6.0",
+    "prisma": "^5.3.1"
   }
 }
