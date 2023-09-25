@@ -4,7 +4,7 @@ import {
   getRegistrations,
   registrationsFilePath,
   saveRegistrations,
-} from "./register";
+} from "../register";
 import moment from "moment";
 
 // const { publicKey, privateKey } = webPush.generateVAPIDKeys();
