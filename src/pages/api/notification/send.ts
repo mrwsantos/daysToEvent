@@ -13,6 +13,7 @@ webPush.setVapidDetails(
 
 interface SendNotificationRequest extends NextApiRequest {
   body: {
+    title: string;
     message: string;
   };
 }
@@ -70,11 +71,13 @@ export default async function handler(
       message = request.body.message;
     }
 
+    const data = JSON.stringify({
+      title: request.body.title,
+      message,
+    });
+
     try {
-      const { statusCode } = await webPush.sendNotification(
-        subscription,
-        message
-      );
+      const { statusCode } = await webPush.sendNotification(subscription, data);
       response.statusCode = statusCode;
       return subscription;
     } catch (err: any) {
