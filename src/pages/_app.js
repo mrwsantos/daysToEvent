@@ -2,7 +2,6 @@ import "../styles/normalize.css"; // Importe o normalize.css aqui
 import "../styles/globals.css"; // Importe o normalize.css aqui
 
 import { DataStorage } from "../context/DataContext";
-import { AppProps } from "next/app";
 
 function MyApp({ Component, pageProps }) {
   return (
