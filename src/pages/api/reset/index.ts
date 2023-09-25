@@ -10,7 +10,7 @@ export default async function handler(
   request: NextApiRequest,
   response: NextApiResponse
 ) {
-  if (request.method == "POST") {
+  if (request.method == "PUT") {
     await fsPromises.writeFile(registrationsFilePath, [])
     // saveRegistrations(registrationsFilePath, []);
 
