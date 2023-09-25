@@ -9,7 +9,7 @@ import {
   Snowflake,
   Sun,
   Wind,
-} from "@phosphor-icons/react";
+} from "phosphor-react";
 import DataContext from "../context/DataContext";
 
 import styles from "../styles/components/Forecast.module.scss";
