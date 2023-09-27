@@ -47,9 +47,7 @@ function getIcon(weatherId: string) {
   return null;
 }
 
-const APP_ID =
-  process.env.NEXT_PUBLIC_WEATHER_API_APP_KEY ??
-  "9f2cf3ec45c5d33adb0230c3659633ed";
+const APP_ID = process.env.NEXT_PUBLIC_WEATHER_API_APP_KEY as string;
 
 const Forecast = () => {
   const { eventDate } = useContext(DataContext);
