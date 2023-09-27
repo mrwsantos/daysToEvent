@@ -3,7 +3,7 @@ import webPush from "web-push";
 import moment from "moment-timezone";
 import { prisma } from "@/lib/prisma";
 
-const TIME_ZONE = "America/Sao_Paulo"
+const TIME_ZONE = "America/Sao_Paulo";
 
 const { publicKey, privateKey } = webPush.generateVAPIDKeys();
 
@@ -37,9 +37,12 @@ export default async function handler(
 
   const catchRegistrations: string[] = [];
 
-  const todayDate = moment.tz(TIME_ZONE).get('day');
-  const eventDate = moment.tz("2023-09-29T15:00:00.000Z", TIME_ZONE).get('day');
-  const daysLeft = eventDate - todayDate
+  const todayDate = moment.tz(TIME_ZONE).get("day");
+  const eventDate = moment.tz("2023-09-29T15:00:00.000Z", TIME_ZONE).get("day");
+  const daysLeft = eventDate - todayDate;
+
+  let title = "Tá chegando a horaaa";
+  let message = "";
 
   const sendResultPromises = registrations.map(async (registration) => {
     const { endpoint, p256dh, auth } = registration;
@@ -55,9 +58,6 @@ export default async function handler(
     if (daysLeft === 0 || daysLeft === -1) {
       return;
     }
-
-    let title = "Tá chegando a horaaa"
-    let message = "";
 
     switch (daysLeft) {
       case 2:
