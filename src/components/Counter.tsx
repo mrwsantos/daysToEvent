@@ -36,6 +36,25 @@ const Counter = () => {
     return <div className={styles.empty}></div>;
   }
 
+  if (timeLeft?.days === 0) {
+    return (
+      <div className={styles.wrapper}>
+        <div className={styles.sheet}>
+          <div className={styles.days}>
+            <div className={styles.daysLeft}>
+              <div>HOJE</div>
+            </div>
+          </div>
+          <div className={styles.row}>
+            <div className={styles.sheet}>
+              <div className={styles.hours}>03 HORAS DA TARDE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <div className={styles.wrapper}>

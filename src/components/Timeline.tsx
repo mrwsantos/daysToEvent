@@ -12,6 +12,10 @@ const Timeline = () => {
   const dayOfTheEvent = moment(eventDate).get("D");
   const calendar = Array(dayOfTheEvent).fill("•");
 
+  if (today === dayOfTheEvent) {
+    return null
+  }
+
   return (
     <ul
       className={styles.timeline}
