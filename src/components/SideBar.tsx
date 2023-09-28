@@ -157,6 +157,15 @@ const SideBar = () => {
                       Reserva no Airbnb
                     </a>
                   </li>
+                  <li>
+                    <a href="https://open.spotify.com/playlist/1Gd2kdo9UlZyoFQss5sYxa?si=12f50a07df054264&pt=9af0f34170e2aeb3afb538728f6f441e" target="_blank">
+                      <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/991px-Spotify_icon.svg.png"
+                        alt="Spotify link"
+                      />
+                      Playlist no Spotify
+                    </a>
+                  </li>
                 </ul>
               </div>
             </>
