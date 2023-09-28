@@ -3,6 +3,7 @@ import styles from "./../styles/components/Main.module.scss";
 
 import {
   Backpack,
+  Basket,
   Link,
   Camera,
   MapPin,
@@ -10,11 +11,12 @@ import {
   GooglePhotosLogo,
 } from "@phosphor-icons/react";
 import data from "../database/checklist.json";
+import dataBasketList from "../database/basket-checklist.json";
 import CheckList from "./CheckList";
 import { isMobile } from "react-device-detect";
 import DataContext from "@/context/DataContext";
 
-type SideContentName = "backpack" | "pictures" | "map" | "links";
+type SideContentName = "backpack" | "pictures" | "map" | "links" | "basket";
 
 const SideBar = () => {
   const [mobileMenuExpanded, setMobileMenuExpanded] = useState(false);
@@ -61,6 +63,11 @@ const SideBar = () => {
             </button>
           </li>
           <li className={styles.menu__item}>
+            <button onClick={() => handleSideBar("basket")}>
+              <Basket size={24} color="white" />
+            </button>
+          </li>
+          <li className={styles.menu__item}>
             <button onClick={() => handleSideBar("links")}>
               <Link size={24} color="white" />
             </button>
@@ -102,7 +109,25 @@ const SideBar = () => {
                 data.sections.map((section, index) => (
                   <div key={index} className={styles.section}>
                     <h3 className={styles.section__title}>{section.title}</h3>
-                    <CheckList data={section.checklist} />
+                    <CheckList data={section.checklist} type={"checklist"} />
+                  </div>
+                ))}
+            </>
+          )}
+          {sideContent === "basket" && (
+            <>
+              <header className={styles.sidebar__header}>
+                <h2>Lista de compras</h2>
+              </header>
+
+              {dataBasketList.sections.length &&
+                dataBasketList.sections.map((section, index) => (
+                  <div key={index} className={styles.section}>
+                    <h3 className={styles.section__title}>{section.title}</h3>
+                    <CheckList
+                      data={section.checklist}
+                      type={"basket-checklist"}
+                    />
                   </div>
                 ))}
             </>
@@ -144,12 +169,18 @@ const SideBar = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="https://photos.app.goo.gl/MHxC2H1D9zC45eyY6" target="_blank">
+                    <a
+                      href="https://photos.app.goo.gl/MHxC2H1D9zC45eyY6"
+                      target="_blank"
+                    >
                       <GooglePhotosLogo size={24} /> Google Photos
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.airbnb.com.br/trips/v1/09bf28bd-d9cf-4f43-841d-720f93c1aa5c/ro/RESERVATION_USER_CHECKIN/HM42EYB99Y" target="_blank">
+                    <a
+                      href="https://www.airbnb.com.br/trips/v1/09bf28bd-d9cf-4f43-841d-720f93c1aa5c/ro/RESERVATION_USER_CHECKIN/HM42EYB99Y"
+                      target="_blank"
+                    >
                       <img
                         src="https://static-00.iconduck.com/assets.00/airbnb-icon-512x512-d9grja5t.png"
                         alt="Airbnb link"
@@ -158,7 +189,10 @@ const SideBar = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="https://open.spotify.com/playlist/1Gd2kdo9UlZyoFQss5sYxa?si=12f50a07df054264&pt=9af0f34170e2aeb3afb538728f6f441e" target="_blank">
+                    <a
+                      href="https://open.spotify.com/playlist/1Gd2kdo9UlZyoFQss5sYxa?si=12f50a07df054264&pt=9af0f34170e2aeb3afb538728f6f441e"
+                      target="_blank"
+                    >
                       <img
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Spotify_icon.svg/991px-Spotify_icon.svg.png"
                         alt="Spotify link"

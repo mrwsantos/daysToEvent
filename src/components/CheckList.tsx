@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import { CheckSquare, Square } from "@phosphor-icons/react";
 import styles from "../styles/components/CheckList.module.scss";
 
-const CheckList = ({ data }: any) => {
+interface CheckListProps {
+  data: any;
+  type: string;
+}
+
+const CheckList = ({ data, type }: CheckListProps) => {
   const [checkList, setCheckList] = useState(data);
 
   /**
@@ -18,7 +23,7 @@ const CheckList = ({ data }: any) => {
 
         item.done = !item.done;
 
-        const checklistStorage = localStorage.getItem("checklist");
+        const checklistStorage = localStorage.getItem(type);
         const checklistArray = checklistStorage
           ? JSON.parse(checklistStorage)
           : [];
@@ -36,7 +41,7 @@ const CheckList = ({ data }: any) => {
 
         const checklistString = JSON.stringify(checklist);
 
-        localStorage.setItem("checklist", checklistString);
+        localStorage.setItem(type, checklistString);
 
         return item;
       });
@@ -47,7 +52,7 @@ const CheckList = ({ data }: any) => {
    * Obtém o checklist armazenado localmente via LocalStorage e atualiza o estado.
    */
   function getInitialChecklist() {
-    const checklistStorage = localStorage.getItem("checklist");
+    const checklistStorage = localStorage.getItem(type);
 
     if (!checklistStorage || !checklistStorage.length) {
       return;

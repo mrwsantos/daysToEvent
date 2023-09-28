@@ -1,0 +1,57 @@
+{
+  "sections": [
+    {
+      "title": "Comum",
+      "checklist": [
+        { "title": "Arroz", "done": false },
+        { "title": "Macarrão", "done": false },
+        { "title": "Frutas", "done": false },
+        { "title": "Temperos", "done": false },
+        { "title": "Café", "done": false },
+        { "title": "Açúcar", "done": false },
+        { "title": "Sal", "done": false },
+        { "title": "Sorvete", "done": false },
+        { "title": "Açaí", "done": false }
+      ]
+    },
+    {
+      "title": "Churrasco",
+      "checklist": [
+        { "title": "Carne", "done": false },
+        { "title": "Linguiça", "done": false },
+        { "title": "Sal grosso", "done": false },
+        { "title": "Pão de alho", "done": false }
+      ]
+    },
+    {
+      "title": "Lanches",
+      "checklist": [
+        { "title": "Tomate", "done": false },
+        { "title": "Salsicha", "done": false },
+        { "title": "Cebola", "done": false },
+        { "title": "Pão de Hot Dog", "done": false },
+        { "title": "Batata Palha", "done": false },
+        { "title": "Pão de Hamburguer", "done": false },
+        { "title": "Carne para hamburguer", "done": false },
+        { "title": "Frios", "done": false }
+      ]
+    },
+    {
+      "title": "Bebidas",
+      "checklist": [
+        { "title": "Cerveja", "done": false },
+        { "title": "Refrigerante", "done": false },
+        { "title": "Suco", "done": false },
+        { "title": "Água", "done": false },
+        { "title": "Destilados", "done": false }
+      ]
+    },
+    {
+      "title": "Snacks",
+      "checklist": [
+        { "title": "Milho de pipoca", "done": false },
+        { "title": "Choco Biscuit Bauducco", "done": false }
+      ]
+    }    
+  ]
+}
