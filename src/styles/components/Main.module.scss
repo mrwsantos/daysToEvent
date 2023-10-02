@@ -263,3 +263,26 @@
   background-color: var(--color-3);
   z-index: 99999999;
 }
+
+.eventFinished{
+  font-size: 130px !important;
+    line-height: 1;
+
+    @media screen and (max-width: 600px) {
+      font-size: 4.5rem !important;
+      text-align: center !important;
+    }
+    
+    span{
+      font-size: 80px !important;
+
+      @media screen and (max-width: 600px) {
+        font-size: 2rem !important;
+      }
+    }
+}
+
+.eventFinishedMobile{
+  display: flex;
+  flex-direction: column;
+}

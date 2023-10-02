@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import DataContext from "../context/DataContext";
 import styles from "./../styles/components/Counter.module.scss";
 
 const Counter = () => {
   const { eventDate } = useContext(DataContext);
-  const [timeLeft, setTimeLeft] = React.useState<any>();
+  const [timeLeft, setTimeLeft] = useState<any>();
+  const {eventFinished, setEventFinished} = useContext(DataContext);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
@@ -27,6 +28,8 @@ const Counter = () => {
         minutes: Math.floor((difference / 1000 / 60) % 60),
         seconds: Math.floor((difference / 1000) % 60),
       };
+    } else {
+      setEventFinished(true);
     }
     setTimeLeft(timeLeft);
     return timeLeft;
@@ -58,33 +61,36 @@ const Counter = () => {
   return (
     <>
       <div className={styles.wrapper}>
-        <div className={styles.sheet}>
-          <div className={styles.days}>
-            <div className={styles.daysLeft}>
-              <div>{timeLeft.days.toString().padStart(2, "0")}</div>
-              <div>{timeLeft.days > 1 ? "DIAS" : "DIA"}</div>
+        {!eventFinished && (
+          <div className={styles.sheet}>
+            <div className={styles.days}>
+              <div className={styles.daysLeft}>
+                <div>{timeLeft.days.toString().padStart(2, "0")}</div>
+                <div>{timeLeft.days > 1 ? "DIAS" : "DIA"}</div>
+              </div>
+            </div>
+            <div className={styles.row}>
+              <div className={styles.sheet}>
+                <div className={styles.hours}>
+                  {timeLeft.hours.toString().padStart(2, "0")}{" "}
+                  {timeLeft.hours > 1 ? "HORAS" : "HORA"}
+                </div>
+              </div>
+              <div className={styles.sheet}>
+                <div className={styles.minutes}>
+                  {timeLeft.minutes}{" "}
+                  {timeLeft.minutes > 1 ? "MINUTOS" : "MINUTO"}
+                </div>
+              </div>
+              <div className={styles.sheet}>
+                <div className={styles.seconds}>
+                  {timeLeft.seconds.toString().padStart(2, "0")}{" "}
+                  {timeLeft.seconds > 1 ? "SEGUNDOS" : "SEGUNDO"}
+                </div>
+              </div>
             </div>
           </div>
-          <div className={styles.row}>
-            <div className={styles.sheet}>
-              <div className={styles.hours}>
-                {timeLeft.hours.toString().padStart(2, "0")}{" "}
-                {timeLeft.hours > 1 ? "HORAS" : "HORA"}
-              </div>
-            </div>
-            <div className={styles.sheet}>
-              <div className={styles.minutes}>
-                {timeLeft.minutes} {timeLeft.minutes > 1 ? "MINUTOS" : "MINUTO"}
-              </div>
-            </div>
-            <div className={styles.sheet}>
-              <div className={styles.seconds}>
-                {timeLeft.seconds.toString().padStart(2, "0")}{" "}
-                {timeLeft.seconds > 1 ? "SEGUNDOS" : "SEGUNDO"}
-              </div>
-            </div>
-          </div>
-        </div>
+        )}
       </div>
     </>
   );
