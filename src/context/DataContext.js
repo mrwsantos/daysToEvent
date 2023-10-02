@@ -25,6 +25,7 @@ export const DataStorage = ({ children }) => {
   );
   const [eventDate, setEventDate] = useState("2023-09-29T15:00:00.000Z");
   const [sidebarOpened, setSidebarOpened] = useState(false);
+  const [eventFinished, setEventFinished] = useState(false);
 
   return (
     <DataContext.Provider
@@ -39,6 +40,8 @@ export const DataStorage = ({ children }) => {
         setEventDate,
         sidebarOpened,
         setSidebarOpened,
+        eventFinished,
+        setEventFinished,
       }}
     >
       {children}

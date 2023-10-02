@@ -18,7 +18,8 @@ import { NotificationModal } from "@/components/NotificationModal";
 
 const Main = () => {
   const [shouldRender, setShouldRender] = useState(false);
-  const { eventName, eventImages, sidebarOpened } = useContext(DataContext);
+  const { eventName, eventImages, sidebarOpened, eventFinished } =
+    useContext(DataContext);
 
   const today = moment().get("D");
   const dynamicBackground = eventImages[today % eventImages.length];
@@ -45,14 +46,31 @@ const Main = () => {
           <header>
             <h1>{eventName}</h1>
           </header>
-          <div className={styles.content}>
-            <Counter />
-            <Forecast />
-          </div>
-          <div className={styles.footer}>
-            <Sound />
-            <Timeline />
-          </div>
+          {eventFinished ? (
+            <>
+              <h1 className={styles.eventFinished}>
+                {isMobile ? (
+                  <>
+                    Evento <span>Finalizado! :)</span>
+                  </>
+                ) : (
+                  "Evento finalizado! :)"
+                )}
+              </h1>
+              <Sound />
+            </>
+          ) : (
+            <>
+              <div className={styles.content}>
+                <Counter />
+                <Forecast />
+              </div>
+              <div className={styles.footer}>
+                <Sound />
+                <Timeline />
+              </div>
+            </>
+          )}
         </div>
 
         <SideBar />
